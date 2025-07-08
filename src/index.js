@@ -38,17 +38,26 @@ async function getRandomBlock(){
     return result
 }
 
-//motor para o jogo funcionar
+// motor para o jogo funcionar
 async function playRaceEngine(character1, character2) {
 
     for(let round = 1; round <=5; round++) {
         console.log(`🏁 Rodada ${round}`);
 
-        //variavel do tipo de pista
+        // variavel do tipo de pista
         let block = await getRandomBlock()
         console.log(`Bloco: ${block}`)
 
     }
+
+    // rolar os dados
+    let diceResult1 = await rollDice();
+    let diceResult2 = await rollDice();
+
+    // teste de habilidade
+
+    let totalTestSkill1 = 0;
+    let totalTestSkill2 = 0;
 }
 
 (async function main(){
