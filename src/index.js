@@ -40,8 +40,8 @@ async function getRandomBlock(){
 
 async function logRollResult(characterName, block, diceResult, attribute){
     
-    console.log(`${characterName} 🎲 Rolou um dado de ${block} ${diceResult}
-        `);
+    console.log(`${characterName} 🎲 Rolou um dado de ${block} 
+        ${diceResult} + ${attribute} = ${diceResult + attribute} `);
       
 
 }
@@ -52,13 +52,11 @@ async function playRaceEngine(character1, character2) {
     for(let round = 1; round <=5; round++) {
         console.log(`🏁 Rodada ${round}`);
 
-        // variavel do tipo de pista
+        // sortear bloco (tipo depista)
         let block = await getRandomBlock()
         console.log(`Bloco: ${block}`)
 
-    }
-
-    // rolar os dados
+        // rolar os dados
     let diceResult1 = await rollDice();
     let diceResult2 = await rollDice();
 
@@ -108,6 +106,9 @@ async function playRaceEngine(character1, character2) {
         let powerResult1 = diceResult1 + character1.PODER;
         let powerResult2 = diceResult2 + character2.PODER;
     }
+
+    }
+    
 }
 
 (async function main(){
