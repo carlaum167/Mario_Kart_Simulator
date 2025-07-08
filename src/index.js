@@ -19,14 +19,35 @@ async function rollDice(){
    return Math.floor(Math.random() * 6) + 1;
 }
 
+//função para sortear o tipo de pista
+async function getRandomBlock(){
+    let random = Math.random()
+    let result 
+
+    switch (true) {
+        case random < 0.33:
+            result = "RETA"
+            break;
+        case random < 0.66:
+            result = "CURVA"
+            break; 
+        default:
+            result = "CONFRONTO"
+    }
+
+    return result
+}
+
 //motor para o jogo funcionar
 async function playRaceEngine(character1, character2) {
 
     for(let round = 1; round <=5; round++) {
         console.log(`🏁 Rodada ${round}`);
 
-        //sorteio de bloco
-        
+        //variavel do tipo de pista
+        let block = await getRandomBlock()
+        console.log(`Bloco: ${block}`)
+
     }
 }
 
